@@ -1,0 +1,10 @@
+.idea/
+.claude/
+.DS_Store
+node_modules/
+.env
+config.yaml
+data/
+*.db
+*.db-shm
+*.db-wal

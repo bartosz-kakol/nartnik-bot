@@ -1,0 +1,50 @@
+# Nartnik configuration. Copy to config.yaml and fill in.
+#
+# Every ID must be a quoted string: snowflake IDs are too large for YAML numbers.
+
+discord:
+  guild_id: "100000000000000001"        # the bridged Discord server
+
+fluxer:
+  guild_id: "200000000000000001"        # the bridged Fluxer server
+  instance: https://fluxer.app          # origin serving /.well-known/fluxer (public instance by default)
+  privileged_role_ids:                  # roles allowed to start and confirm history imports
+    - "200000000000000002"
+
+command_prefix: "!"                     # Fluxer commands: !import <max>, !import cancel (a space after the prefix is optional)
+database_path: ./data/nartnik.db        # relative to this file
+log_level: info                         # debug | info | warn | error
+webhook_name: Nartnik                   # name of the webhooks the bot creates
+
+# true: a mention of a linked user notifies them on the other platform too.
+# @everyone, @here and role mentions never notify anyone a second time.
+ping_linked_users: true
+
+limits:
+  fluxer_upload_mib: 25                 # larger attachments are sent as links
+  # discord_upload_mib: 10              # default: derived from the server's boost level (10 / 50 / 100)
+
+import:
+  max_messages: 10000                   # upper bound for !import <max>
+  confirm_timeout_minutes: 10           # how long the ✅ confirmation stays open
+
+# Mappings below are imported into the database on the first start only. After that they are
+# ignored: change mappings with the map / unmap commands on Fluxer (see README > Mappings).
+
+channels:                               # Discord channel ID -> Fluxer channel ID
+  - discord: "100000000000000010"
+    fluxer: "200000000000000010"
+  - discord: "100000000000000011"
+    fluxer: "200000000000000011"
+
+users:                                  # Discord user ID -> Fluxer user ID
+  - discord: "100000000000000100"
+    fluxer: "200000000000000100"
+
+emoji:                                  # Discord custom emoji ID -> Fluxer custom emoji ID
+  - discord: "100000000000001000"
+    fluxer: "200000000000001000"
+
+roles:                                  # Discord role ID -> Fluxer role ID (mentions only, never ping)
+  - discord: "100000000000010000"
+    fluxer: "200000000000010000"

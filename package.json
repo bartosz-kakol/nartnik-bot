@@ -1,0 +1,21 @@
+{
+  "name": "nartnik-bot",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Bridges one Discord server and one Fluxer server.",
+  "type": "module",
+  "main": "src/index.js",
+  "engines": {
+    "node": ">=22.13"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "node --test test/*.test.js"
+  },
+  "dependencies": {
+    "@fluxerjs/core": "^3.3.0",
+    "better-sqlite3": "^13.2.0",
+    "discord.js": "^14.28.1",
+    "yaml": "^2.9.1"
+  }
+}

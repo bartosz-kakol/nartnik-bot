@@ -1,0 +1,27 @@
+# systemd unit. Install:
+#   sudo cp deploy/nartnik.service /etc/systemd/system/
+#   sudo systemctl daemon-reload && sudo systemctl enable --now nartnik
+#   journalctl -u nartnik -f
+# Adjust User and WorkingDirectory to where the bot lives.
+# .env and config.yaml are read from WorkingDirectory.
+
+[Unit]
+Description=Nartnik Discord <-> Fluxer bridge
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=nartnik
+WorkingDirectory=/opt/nartnik-bot
+ExecStart=/usr/bin/node src/index.js
+Restart=on-failure
+RestartSec=10
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/nartnik-bot/data
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
