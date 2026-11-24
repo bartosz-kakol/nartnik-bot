@@ -1,3 +1,5 @@
+<img src="./logo.png" align="right" width="88" >
+
 # Nartnik
 
 A private bot that bridges one Discord server and one Fluxer server. Messages in paired channels are relayed
