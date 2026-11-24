@@ -1,6 +1,8 @@
-<img src="./logo.png" align="right" width="88" >
+<img src="./logo.png" align="right" width="70" >
 
 # Nartnik
+
+> Logo made by my great friend [pepeTheSmugMan](https://github.com/pepeTheSmugMan/)!
 
 A private bot that bridges one Discord server and one Fluxer server. Messages in paired channels are relayed
 through webhooks so they appear under the author's name and avatar on the other platform. On Fluxer it can
